@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
    index: any;
    id!:number;
    updateSelect:any;
+   message :string = ""
 
   ngOnInit(): void {
     this.createTask(this.date);
@@ -53,6 +54,7 @@ editTask(index:any,id:number){
     this.as.UpdateTask(id,newData).subscribe((res) => {
     })
     console.log(altData.date);
+    this.message = "Task Deleted Successfully"
   }
 
   createTask(d:any){
@@ -80,6 +82,7 @@ editTask(index:any,id:number){
       console.log(updateTask[obj].tasks[this.index]);
       updateTask[obj].tasks.splice(this.index,1,this.updateSelect);
       console.log(updateTask);
+      this.message = "Task Updated Successfully"
     }
     let newData = new Object();
     newData = updateTask[0];
@@ -89,6 +92,7 @@ editTask(index:any,id:number){
     // console.log(updateTask);
     this.as.UpdateTask(this.id,newData).subscribe((res) => {})
     console.log(this.id);
+    
 
   }
 

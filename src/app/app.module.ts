@@ -21,6 +21,7 @@ import { HospitalComponent } from './hospital/hospital.component';
 import { ChartsModule } from 'ng2-charts';
 import { SearchPipe } from './search.pipe';
 import { MoviesComponent } from './movies/movies.component';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 
@@ -38,7 +39,8 @@ import { MoviesComponent } from './movies/movies.component';
     HerosComponent,
     HospitalComponent,
     SearchPipe,
-    MoviesComponent
+    MoviesComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,

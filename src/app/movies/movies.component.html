@@ -1,31 +1,41 @@
 
 <!-- search Bar -->
-<div style="background-image: url(../../assets/images/movie.jpg);background-position: center;background-size: cover;height: 600px;">
     <div class="container col-md-6">
         <div class="input-group">
-            <input type="search" [(ngModel)]="mname" (keyup)="getmovies()"  class="form-control rounded" placeholder="Search" aria-label="Search"
+            <input type="search" [(ngModel)]="movie" (keyup)="getmovies()"  class="form-control rounded" placeholder="Search" aria-label="Search"
               aria-describedby="search-addon" />
             <button type="button" (click)="getmovies()" class="btn btn-danger">search</button>
           </div>
         </div>
-    
-        <!-- cards -->
-        <div class="container mt-3 align bg-light">
-            <div class="card card-header" style="width: 18rem;">
-                <img style="width: 255px; height: 200px;" [src]="movies.Poster" alt="" width="285px" height="250px">
-                <div class="card-body card-footer ">
-                  <h3 class="card-title"><b>Title :</b>{{movies.Title}}</h3>
-                  <h4 class="card-text"><b>Director :</b>{{movies.Director}}</h4>
-                  <h4 class="card-text"><b>Released :</b>{{movies.Released}}</h4>
-                  <h4 class="card-text"><b>Actors :</b>{{movies.Actors}}</h4>
-                  <h4 class="card-text"><b>Language :</b>{{movies.Language}}</h4>
-                  <h4 class="card-text"><b>Runtime :</b>{{movies.Runtime}}</h4>
-    
-                  <a href="#" class="btn btn-primary">Get Details</a>
-                </div>
+        <!--spinner  -->
+        <div class="text-center mt-5" *ngIf = "isloading">
+          <app-spinner></app-spinner>
+      </div>
+
+       <div class="main">
+        <h1>Search Movie Details</h1>
+        <ul class="cards" >
+          <li class="cards_item" *ngFor="let movie of search">
+            <div class="card">
+              <div class="card_image"><img style="width: 255px; height: 200px;" [src]="movie.Poster" alt=""></div>
+              <div class="card_content">
+                <h2 class="card_title">Movie Details</h2>
+                <h3 ><b>Title :</b>{{movie.Title}}</h3>
+                <h4><b>Type :</b>{{movie.Type}}</h4>
+                <h4><b>Year :</b>{{movie.Year}}</h4>
+                <h4><b>imdbID :</b>{{movie.imdbID}}</h4>
+                <a class="btn btn-info" [href]="'https://www.google.com/search?q='+movie.Title">Get Details</a>
               </div>
-        </div>
-</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+     
+    
+
+
+
 
 
    

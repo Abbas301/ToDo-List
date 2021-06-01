@@ -9,15 +9,22 @@ import { Component, OnInit } from '@angular/core';
 export class MoviesComponent implements OnInit {
 
   movies:any
-  mname : any =""
+  movie : string ="baahubali"
+  search:any = []
+  isloading : boolean = true
 
   constructor( private http:HttpClient) { }
 
   getmovies()
   {
-    this.movies = this.http.get<any>("http://www.omdbapi.com/?i=tt3896198&apikey=2b836fc3&t="+this.mname).subscribe(data => 
+    this.isloading = true
+    this.movies = this.http.get("http://www.omdbapi.com/?i=tt3896198&apikey=2b836fc3&s="+this.movie).subscribe(data => 
     {
       this.movies = data;
+      console.log(data);
+      this.search = this.movies.Search
+      console.log(this.search);
+      this.isloading = false
     },
     err =>
     {
@@ -33,11 +40,7 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get<any>(""+this.mname).subscribe(data => 
-      {
-        this.movies = data;
-      })
-    
+   this.getmovies();
   }
 
   
