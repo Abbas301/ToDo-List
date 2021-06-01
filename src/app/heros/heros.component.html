@@ -1,0 +1,51 @@
+<div class="share">
+
+<ul class="style">
+    <h2 class="add">Daily Tasks</h2>
+  <li *ngFor="let tasks of Details"
+    [class.selected]="tasks === selectedtask"
+    (click)="onSelect(tasks)">
+    <span class="">{{tasks.Date}}</span>
+  </li>
+</ul>
+
+<div>
+    <a href="inputs" class="btn btn-warning px-5 position">Add Tasks</a>
+</div>
+
+<div *ngIf="selectedtask">
+  <h2 class="add">Tasks ToDo's</h2>
+  <div><span><b>Date :-</b></span>{{selectedtask.Date}}</div>
+  <div>
+    <label for="tasks-Task"><b>Tasks :-</b> </label>
+    <input Date="tasks-Task" [(ngModel)]="selectedtask.Task" class="form-control" placeholder="Task" size="50">
+     <!-- <a href="about" class="btn btn-secondary px-3 mx-4 mt-3">Edit</a> -->
+     <!-- modal -->
+     <button type="button" class="btn btn-primary mt-3 px-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Edit
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Update Task</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+          <input type="text" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </div>
+    </div>
+     <!-- /modal -->
+     <button class="btn btn-danger px-3 mx-2 mt-3">remove</button>
+  </div>
+</div>
+</div>
+

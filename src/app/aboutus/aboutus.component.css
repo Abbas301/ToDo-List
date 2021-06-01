@@ -1,0 +1,16 @@
+.style
+{
+    border: 3px solid grey;
+    padding: 30px;
+    margin-top: 180px;
+    border-radius: 15px;
+    background-color: palegreen;
+}
+.effect
+{
+    color: orangered;
+    font-style: italic;
+    font-weight: bolder;
+    border-bottom: 4px ridge black;
+    text-align: center;
+}

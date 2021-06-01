@@ -1,0 +1,16 @@
+.form 
+{
+    border: 2px solid grey;
+    padding: 30px;
+    margin-top: 150px;
+    border-radius: 15px;
+    background-color: orange;
+}
+.style
+{
+    text-align: center;
+    font-style: italic;
+    border-bottom: 4px groove red;
+    font-weight: bolder;
+    font-size: 30px;
+}

@@ -1,0 +1,30 @@
+<div class="background">
+    <div class="container col-4 form">
+        <h3 class="style">Login</h3>
+        <form action="" #form="ngForm">
+            <div>
+                <label class="form-label" for=""><mat-icon>perm_contact_calendar</mat-icon>Username :</label>
+            <input class="form-control is-invalid is-valid" type="tel" minlength="5" ngModel #un = "ngModel" name="username" placeholder="username" 
+                pattern="^[A-Z]{1}[a-z]{5}$" [class.is-invalid] ="un.touched && un.invalid" [class.is-valid] ="un.touched && un.valid" required>
+            <div *ngIf = "un.errors && un.touched" class="alert alert-danger">
+                <small  *ngIf="un.errors.required" >The field cannot be empty</small>
+                <small  *ngIf="un.errors.minlength" >The field should have 5 characters</small>
+                <small  *ngIf="un.errors.pattern" >The pattern is not matched</small>
+            </div> 
+           </div>
+            <div>
+                <label class="form-label" for=""><mat-icon>fingerprint</mat-icon>Password :</label>
+            <input class="form-control is-invalid is-valid" type="password" minlength="10" ngModel #psw = "ngModel" name="password" placeholder="password" 
+                pattern="^[6-9][0-9]{9}$" [class.is-invalid] ="psw.touched && psw.invalid" [class.is-valid] ="psw.touched && psw.valid" required>
+            <div *ngIf = "psw.errors && psw.touched" class="alert alert-danger">
+                <small  *ngIf="psw.errors.required" >The field cannot be empty</small>
+                <small  *ngIf="psw.errors.minlength" >The field should have 10 characters</small>
+                <small  *ngIf="psw.errors.pattern" >The pattern is not matched</small>
+            </div> 
+           </div>
+            <div>
+                <a href="home" class="btn btn-success mt-3 mx-5 px-5">Submit</a>
+            </div>
+        </form>
+    </div>
+</div>

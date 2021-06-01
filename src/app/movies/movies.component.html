@@ -1,0 +1,32 @@
+
+<!-- search Bar -->
+<div style="background-image: url(../../assets/images/movie.jpg);background-position: center;background-size: cover;height: 600px;">
+    <div class="container col-md-6">
+        <div class="input-group">
+            <input type="search" [(ngModel)]="mname" (keyup)="getmovies()"  class="form-control rounded" placeholder="Search" aria-label="Search"
+              aria-describedby="search-addon" />
+            <button type="button" (click)="getmovies()" class="btn btn-danger">search</button>
+          </div>
+        </div>
+    
+        <!-- cards -->
+        <div class="container mt-3 align bg-light">
+            <div class="card card-header" style="width: 18rem;">
+                <img style="width: 255px; height: 200px;" [src]="movies.Poster" alt="" width="285px" height="250px">
+                <div class="card-body card-footer ">
+                  <h3 class="card-title"><b>Title :</b>{{movies.Title}}</h3>
+                  <h4 class="card-text"><b>Director :</b>{{movies.Director}}</h4>
+                  <h4 class="card-text"><b>Released :</b>{{movies.Released}}</h4>
+                  <h4 class="card-text"><b>Actors :</b>{{movies.Actors}}</h4>
+                  <h4 class="card-text"><b>Language :</b>{{movies.Language}}</h4>
+                  <h4 class="card-text"><b>Runtime :</b>{{movies.Runtime}}</h4>
+    
+                  <a href="#" class="btn btn-primary">Get Details</a>
+                </div>
+              </div>
+        </div>
+</div>
+
+
+   
+

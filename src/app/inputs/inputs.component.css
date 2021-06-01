@@ -1,0 +1,11 @@
+.shade 
+{
+   background-color: rgb(209, 103, 152);
+   padding: 50px;
+   border-radius: 10px;
+}
+.color
+{
+    color: white;
+    font-weight: bolder;
+}

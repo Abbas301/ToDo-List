@@ -1,0 +1,119 @@
+
+<!-- section 1 -->
+<div class="main" *ngIf="selectedpatient">
+    <div>
+        <h1 class="name">{{selectedpatient.name}}</h1>
+    </div>
+    <div >
+        <img class="img" src={{selectedpatient.Url}} width="60px" height="70px"
+            style="border-radius: 50%;" alt="image">
+    </div>
+</div>
+<!-- section 2 -->
+<div class="main-body mt-3">
+    <div class="section">
+        <!-- bar -->
+        <div class="chart">
+            <div class="bars">
+                <h1 class="text-center">Total Visits</h1>
+                <div style="display: block;" class="mt-5">
+                    <canvas baseChart 
+                      [datasets]="barChartData"
+                      [labels]="barChartLabels"
+                      [options]="barChartOptions"
+                      [plugins]="barChartPlugins"
+                      [legend]="barChartLegend"
+                      [colors]="barChartColors"
+                      [chartType]="barChartType">
+                    </canvas>
+                  </div>
+            </div>
+            <!-- //bar -->
+            <!-- form -->
+            <div class="image">
+                <div *ngIf="selectedpatient">
+                    <img  src={{selectedpatient.Url}} width="180px" height="250px"
+                        alt="image">
+                </div>
+                <div class="details" >
+                    <form action="" #update="ngForm">
+                    
+                            <div class="form-group" >
+                                <label class="form-label" for="name"><b>Name</b></label>
+                                <input class="form-control" *ngIf="selectedpatient" type="text" id="name" name="name" [(ngModel)]="selectedpatient.name" >
+                            </div>
+                            <div class="form-group" >
+                                <label class="form-label" for="date"><b>Date</b></label>
+                                <input class="form-control" *ngIf="selectedpatient" type="date" id="date" name="date" [(ngModel)]="selectedpatient.date">
+                            </div>
+                            <div class="form-group" >
+                                <label class="form-label" for="email"><b>Email</b></label>
+                                <input class="form-control" *ngIf="selectedpatient" type="email" id="email" name="email" [(ngModel)]="selectedpatient.email">
+                            </div>
+                            <div class="form-group">
+                                <input type="radio" name="yes"><b>Inpatient</b>
+                                <input type="radio" name="yes" class="auto"><b>Outpatient</b>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-light px-3">SAVE</button>
+                                <button type="reset" class="btn btn-light gap">RESET</button>
+                            </div>
+                    
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--// form -->
+
+        <!-- //section 2 -->
+
+        <!-- section 3 -->
+        <!-- table -->
+        <div class="card mt-2">
+            <div class="card-body p-0">
+                <table class="table text-center table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sl.No</th>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Diagnosys</th>
+                            <th>Symptoms</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr *ngFor="let detail of details;index as i" [class.selected]="detail == selectedpatient" (click)="onselect(detail)">
+                            <td>{{i+1}}</td>
+                            <td>{{detail.date}}</td>
+                            <td>{{detail.name}}</td>
+                            <td>{{detail.email}}</td>
+                            <td>{{detail.diagnosis}}</td>
+                            <td>{{detail.symptoms}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- // table -->
+    </div>
+    <!-- search -->
+    <div class="search-section p-2">
+        <div class="search">
+            <input [(ngModel)]="sear"  class="form-control rounded" placeholder="Search" aria-label="Search"
+          aria-describedby="search-addon" />
+        <button type="submit"  class="btn btn-outline-primary">submit</button>
+        </div>
+       
+        <div>
+            <tr *ngFor="let detail of details | search:sear" [class.selected]="detail == selectedpatient" (click)="onselect(detail)">
+                <td>
+                     <img src={{detail.Url}} alt="" height="60px" width="60px"
+                            class="photo">
+                        <span class="letters">{{detail.name}}</span>
+                </td>
+            </tr>
+        </div>
+    </div>
+</div>
+<!-- //search -->

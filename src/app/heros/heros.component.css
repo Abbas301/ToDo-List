@@ -1,0 +1,39 @@
+.style {
+    margin: 0 0 20px 0;
+    list-style-type: none;
+    padding: 0;
+    width: 200px;
+  }
+  .style li {
+    background-color: whitesmoke;
+    margin: 7px;
+    padding: 5px;
+    border-radius: 4px;
+  }
+  .style li.selected {
+    background-color: black;
+    color: white;
+  }
+  .style li.selected:hover {
+    background-color: grey;
+    color: white;
+  }
+  .style li.selected:active {
+    background-color: black;
+    color: white;
+  }
+  .share
+  {
+    display: flex;
+    justify-content:left;
+  }
+  .add
+  {
+    font-style: italic;
+    font-weight: bolder;
+    border-bottom: 4px ridge orangered;
+  }
+  .position
+  {
+    margin-top: 400px;
+  }
